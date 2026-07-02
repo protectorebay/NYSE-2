@@ -1,81 +1,243 @@
 // =====================================================
 // Market Sessions Dashboard
 // sessions.js
-// Configuration only - no logic here.
+// Version 2.0
 // =====================================================
 
 const sessions = [
 
+    // =================================================
+    // NEW YORK
+    // =================================================
+
     {
         id: "newyork",
-        name: "NEW YORK SESSION",
+
+        title: "NEW YORK SESSION",
+
         timezone: "America/New_York",
 
-        openHour: 8,
-        openMinute: 0,
+        enabled: true,
 
-        preEndHour: 9,
-        preEndMinute: 30,
+        holidayEngine: true,
 
-        regularEndHour: 16,
-        regularEndMinute: 0,
+        phases: [
 
-        closeHour: 17,
-        closeMinute: 0,
+            {
+                id: "premarket",
 
-        hasPreMarket: true,
-        hasPostMarket: true,
-        useHolidayEngine: true
+                title: "PRE MARKET",
+
+                start: {
+                    hour: 8,
+                    minute: 0
+                },
+
+                end: {
+                    hour: 9,
+                    minute: 30
+                },
+
+                status: "OPEN",
+
+                statusClass: "open",
+
+                phaseClass: "premarket",
+
+                countdownText: "REGULAR MARKET IN"
+
+            },
+
+            {
+                id: "regular",
+
+                title: "",
+
+                start: {
+                    hour: 9,
+                    minute: 30
+                },
+
+                end: {
+                    hour: 16,
+                    minute: 0
+                },
+
+                status: "OPEN",
+
+                statusClass: "open",
+
+                phaseClass: "",
+
+                countdownText: "POST MARKET IN"
+
+            },
+
+            {
+                id: "postmarket",
+
+                title: "POST MARKET",
+
+                start: {
+                    hour: 16,
+                    minute: 0
+                },
+
+                end: {
+                    hour: 17,
+                    minute: 0
+                },
+
+                status: "OPEN",
+
+                statusClass: "open",
+
+                phaseClass: "postmarket",
+
+                countdownText: "CLOSES IN"
+
+            }
+
+        ]
+
     },
+
+    // =================================================
+    // LONDON
+    // =================================================
 
     {
         id: "london",
-        name: "LONDON SESSION",
+
+        title: "LONDON SESSION",
+
         timezone: "Europe/London",
 
-        openHour: 8,
-        openMinute: 0,
+        enabled: true,
 
-        closeHour: 17,
-        closeMinute: 0,
+        holidayEngine: false,
 
-        hasPreMarket: false,
-        hasPostMarket: false,
-        useHolidayEngine: false
+        phases: [
+
+            {
+                id: "regular",
+
+                title: "",
+
+                start: {
+                    hour: 8,
+                    minute: 0
+                },
+
+                end: {
+                    hour: 17,
+                    minute: 0
+                },
+
+                status: "OPEN",
+
+                statusClass: "open",
+
+                phaseClass: "",
+
+                countdownText: "CLOSES IN"
+
+            }
+
+        ]
+
     },
+
+    // =================================================
+    // TOKYO
+    // =================================================
 
     {
         id: "tokyo",
-        name: "TOKYO SESSION",
+
+        title: "TOKYO SESSION",
+
         timezone: "Asia/Tokyo",
 
-        openHour: 9,
-        openMinute: 0,
+        enabled: true,
 
-        closeHour: 18,
-        closeMinute: 0,
+        holidayEngine: false,
 
-        hasPreMarket: false,
-        hasPostMarket: false,
-        useHolidayEngine: false
+        phases: [
+
+            {
+                id: "regular",
+
+                title: "",
+
+                start: {
+                    hour: 9,
+                    minute: 0
+                },
+
+                end: {
+                    hour: 18,
+                    minute: 0
+                },
+
+                status: "OPEN",
+
+                statusClass: "open",
+
+                phaseClass: "",
+
+                countdownText: "CLOSES IN"
+
+            }
+
+        ]
+
     },
+
+    // =================================================
+    // SYDNEY
+    // =================================================
 
     {
         id: "sydney",
-        name: "SYDNEY SESSION",
+
+        title: "SYDNEY SESSION",
+
         timezone: "Australia/Sydney",
 
-        openHour: 8,
-        openMinute: 0,
+        enabled: true,
 
-        closeHour: 17,
-        closeMinute: 0,
+        holidayEngine: false,
 
-        hasPreMarket: false,
-        hasPostMarket: false,
-        useHolidayEngine: false
+        phases: [
+
+            {
+                id: "regular",
+
+                title: "",
+
+                start: {
+                    hour: 8,
+                    minute: 0
+                },
+
+                end: {
+                    hour: 17,
+                    minute: 0
+                },
+
+                status: "OPEN",
+
+                statusClass: "open",
+
+                phaseClass: "",
+
+                countdownText: "CLOSES IN"
+
+            }
+
+        ]
+
     }
 
 ];
-
-// Future sessions can be added here without changing the engine.
